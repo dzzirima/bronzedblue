@@ -17,6 +17,19 @@ void httpErrorHandle(
   }
 }
 
+void addUserhttpErrorHandle(
+    {required http.Response response,
+    required BuildContext context,
+    required VoidCallback onSuccess}) {
+  switch (jsonDecode(response.body)['success']) {
+    case true:
+      onSuccess();
+      break;
+    default:
+      showSnackBar(context, response.body);
+  }
+}
+
 void loginhttpErrorHandle(
     {required http.Response response,
     required BuildContext context,

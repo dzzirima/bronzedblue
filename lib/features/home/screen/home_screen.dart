@@ -1,3 +1,4 @@
+import 'package:bronzedblue/features/home/screen/add_user_screen.dart';
 import 'package:bronzedblue/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,18 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Center(
         child: Text(user.toJson()),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddUserScreen(),
+            ),
+          );
+        },
+        backgroundColor: Colors.black,
+        child: const Icon(Icons.add),
       ),
     );
   }
