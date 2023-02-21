@@ -89,12 +89,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         height: 10,
                       ),
                       CustomButton(
-                          text: 'Sign Up',
-                          onTap: () {
-                            if (_SignUpFormKey.currentState!.validate()) {
-                              signUpUser();
-                            }
-                          })
+                        text: 'Sign Up',
+                        onTap: () {
+                          if (_SignUpFormKey.currentState!.validate()) {
+                            signUpUser();
+                          }
+                        },
+                      )
                     ],
                   ),
                 ),

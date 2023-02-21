@@ -1,5 +1,6 @@
 import 'package:bronzedblue/common/widgets/custom_button.dart';
 import 'package:bronzedblue/common/widgets/custom_textfield.dart';
+import 'package:bronzedblue/features/auth/services/auth_services.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,19 +12,24 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _LoginFormKey = GlobalKey<FormState>();
+  final _loginFormKey = GlobalKey<FormState>();
+  final Authservice authservice = Authservice();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _mobileNumberController = TextEditingController();
 
   @override
   void dispose() {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
-    _usernameController.dispose();
-    _mobileNumberController.dispose();
+  }
+
+  void signInUser() {
+    authservice.signInUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
   }
 
   @override
@@ -45,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 child: Form(
-                  key: _LoginFormKey,
+                  key: _loginFormKey,
                   child: Column(
                     children: [
                       const SizedBox(
@@ -68,7 +74,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      CustomButton(text: 'Login', onTap: () {})
+                      CustomButton(
+                          text: 'Login',
+                          onTap: () {
+                            if (_loginFormKey.currentState!.validate()) {
+                              signInUser();
+                            }
+                          })
                     ],
                   ),
                 ),
