@@ -1,7 +1,6 @@
 import 'package:bronzedblue/providers/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,6 +16,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("List of all Users"),
+        centerTitle: true,
+      ),
       body: Center(
         child: Text(user.toJson()),
       ),

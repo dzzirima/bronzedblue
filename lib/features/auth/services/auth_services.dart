@@ -89,7 +89,7 @@ class Authservice {
 
             Navigator.pushNamedAndRemoveUntil(
               context,
-              HomeScreen.routeName,
+              '/home',
               (route) => false,
             );
 

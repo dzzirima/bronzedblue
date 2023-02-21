@@ -1,3 +1,4 @@
+import 'package:bronzedblue/features/auth/screens/SignUp_screen.dart';
 import 'package:bronzedblue/features/auth/screens/login_screen.dart';
 import 'package:bronzedblue/features/auth/services/auth_services.dart';
 import 'package:bronzedblue/features/home/screen/home_screen.dart';
@@ -37,7 +38,7 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: (routeSettings) => generateRoute(routeSettings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
           ? const HomeScreen()
-          : const LoginScreen(),
+          : const SignUpScreen(),
     );
   }
 }

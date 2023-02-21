@@ -1,5 +1,6 @@
 import 'package:bronzedblue/common/widgets/custom_button.dart';
 import 'package:bronzedblue/common/widgets/custom_textfield.dart';
+import 'package:bronzedblue/features/auth/screens/SignUp_screen.dart';
 import 'package:bronzedblue/features/auth/services/auth_services.dart';
 import 'package:flutter/material.dart';
 
@@ -74,13 +75,29 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      CustomButton(
-                          text: 'Login',
-                          onTap: () {
-                            if (_loginFormKey.currentState!.validate()) {
-                              signInUser();
-                            }
-                          })
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CustomButton(
+                              text: 'Login',
+                              onTap: () {
+                                if (_loginFormKey.currentState!.validate()) {
+                                  signInUser();
+                                }
+                              }),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SignUpScreen(),
+                                ),
+                              );
+                            },
+                            child: const Text('Create Account'),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),
