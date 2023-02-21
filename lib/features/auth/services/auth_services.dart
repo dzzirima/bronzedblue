@@ -71,8 +71,6 @@ class Authservice {
             'Content-Type': 'application/json; charset=UTF-8',
           });
 
-      print(res.body);
-
       // ignore: use_build_context_synchronously
       loginhttpErrorHandle(
           response: res,
@@ -82,10 +80,10 @@ class Authservice {
             SharedPreferences prefs = await SharedPreferences.getInstance();
 
             var myUser = jsonEncode(jsonDecode(res.body)['user']);
-
-            // ignore: use_build_context_synchronously
-            Provider.of<UserProvider>(context, listen: false).setUser(myUser);
             await prefs.setString('token', jsonDecode(res.body)['token']);
+
+            // // ignore: use_build_context_synchronously
+            // Provider.of<UserProvider>(context, listen: false).setUser(myUser);
 
             Navigator.pushNamedAndRemoveUntil(
               context,

@@ -60,15 +60,18 @@ class _AddUserScreenState extends State<AddUserScreen> {
                   child: Column(
                     children: [
                       CustomTextField(
-                        controller: _nameController,
-                        hinttext: "Enter Name",
+                        controller: _emailController,
+                        hinttext: "Enter Email",
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       CustomTextField(
-                        controller: _emailController,
-                        hinttext: "Enter Email",
+                        controller: _nameController,
+                        hinttext: "Enter Name",
+                      ),
+                      const SizedBox(
+                        height: 10,
                       ),
                       const SizedBox(
                         height: 10,
