@@ -1,9 +1,10 @@
 import 'package:bronzedblue/common/widgets/custom_button.dart';
 import 'package:bronzedblue/common/widgets/custom_textfield.dart';
+import 'package:bronzedblue/features/auth/services/auth_services.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
-  static const String routeName = '/SignUp-screen';
+  static const String routeName = '/signUp-screen';
   const SignUpScreen({super.key});
 
   @override
@@ -12,6 +13,8 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _SignUpFormKey = GlobalKey<FormState>();
+  final Authservice authservice = Authservice();
+
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
@@ -24,6 +27,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
     _passwordController.dispose();
     _usernameController.dispose();
     _mobileNumberController.dispose();
+  }
+
+  void signUpUser() {
+    authservice.signUpUser(
+        context: context,
+        email: _emailController.text,
+        username: _usernameController.text,
+        password: _passwordController.text,
+        mobileNumber: _mobileNumberController.text);
   }
 
   @override
@@ -76,7 +88,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      CustomButton(text: 'Sign Up', onTap: () {})
+                      CustomButton(
+                          text: 'Sign Up',
+                          onTap: () {
+                            if (_SignUpFormKey.currentState!.validate()) {
+                              signUpUser();
+                            }
+                          })
                     ],
                   ),
                 ),

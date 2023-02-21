@@ -3,7 +3,7 @@ import 'package:bronzedblue/common/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
-  static const String routeName = '/Login-screen';
+  static const String routeName = '/login-screen';
   const LoginScreen({super.key});
 
   @override
