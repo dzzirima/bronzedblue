@@ -8,15 +8,9 @@ void httpErrorHandle(
     {required http.Response response,
     required BuildContext context,
     required VoidCallback onSuccess}) {
-  switch (response.statusCode) {
-    case 200:
+  switch (jsonDecode(response.body)['success']) {
+    case true:
       onSuccess();
-      break;
-    case 400:
-      showSnackBar(context, jsonDecode(response.body)['message']);
-      break;
-    case 500:
-      showSnackBar(context, 'Server Error');
       break;
     default:
       showSnackBar(context, response.body);

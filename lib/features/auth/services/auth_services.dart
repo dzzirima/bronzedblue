@@ -18,6 +18,7 @@ class Authservice {
       User user = User(
           id: '',
           username: username,
+          password: password,
           email: email,
           mobileNumber: mobileNumber,
           token: '',

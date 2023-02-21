@@ -5,6 +5,7 @@ class User {
   final String id;
   final String username;
   final String email;
+  final String password;
   final String mobileNumber;
   final String token;
   final String role;
@@ -12,6 +13,7 @@ class User {
     required this.id,
     required this.username,
     required this.email,
+    required this.password,
     required this.mobileNumber,
     required this.token,
     required this.role,
@@ -22,6 +24,7 @@ class User {
       'id': id,
       'username': username,
       'email': email,
+      'password': password,
       'mobileNumber': mobileNumber,
       'token': token,
       'role': role,
@@ -33,6 +36,7 @@ class User {
       id: map['id'] as String,
       username: map['username'] as String,
       email: map['email'] as String,
+      password: map['password'] as String,
       mobileNumber: map['mobileNumber'] as String,
       token: map['token'] as String,
       role: map['role'] as String,
