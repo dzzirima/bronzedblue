@@ -76,7 +76,7 @@ class AddUserService {
       Provider.of<UserListProvider>(context, listen: false).setUsers(users);
       return users;
     } else {
-      throw Exception('Unexpected error occured!');
+      return [];
     }
   }
 }

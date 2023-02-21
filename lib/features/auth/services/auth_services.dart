@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:bronzedblue/constants/error_handling.dart';
 import 'package:bronzedblue/constants/utils.dart';
+import 'package:bronzedblue/features/auth/screens/login_screen.dart';
 import 'package:bronzedblue/features/home/screen/home_screen.dart';
 import 'package:bronzedblue/models/user.dart';
 import 'package:bronzedblue/providers/user_provider.dart';
@@ -44,7 +45,13 @@ class Authservice {
           onSuccess: () {
             showSnackBar(
               context,
-              "Account created successfully",
+              "Account created successfully ,login with same details .",
+            );
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const HomeScreen(),
+              ),
             );
           });
     } catch (e) {

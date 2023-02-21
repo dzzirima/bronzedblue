@@ -1,3 +1,4 @@
+import 'package:bronzedblue/constants/global_variables.dart';
 import 'package:bronzedblue/features/auth/screens/SignUp_screen.dart';
 import 'package:bronzedblue/features/auth/screens/login_screen.dart';
 import 'package:bronzedblue/features/auth/services/auth_services.dart';
@@ -34,7 +35,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'BronzedBlue',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: const ColorScheme.light(
+          primary: GlobalVariables.textColor,
+        ),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       onGenerateRoute: (routeSettings) => generateRoute(routeSettings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty

@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         },
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         child: const Icon(Icons.add),
       ),
     );
