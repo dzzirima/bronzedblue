@@ -81,11 +81,10 @@ class Authservice {
           onSuccess: () async {
             SharedPreferences prefs = await SharedPreferences.getInstance();
 
-            var _myUser = jsonEncode(jsonDecode(res.body)['user']);
-            print(_myUser);
+            var myUser = jsonEncode(jsonDecode(res.body)['user']);
 
             // ignore: use_build_context_synchronously
-            Provider.of<UserProvider>(context, listen: false).setUser(_myUser);
+            Provider.of<UserProvider>(context, listen: false).setUser(myUser);
             await prefs.setString('token', jsonDecode(res.body)['token']);
 
             Navigator.pushNamedAndRemoveUntil(
@@ -99,6 +98,27 @@ class Authservice {
               "Signin successfully",
             );
           });
+    } catch (e) {
+      showSnackBar(
+        context,
+        e.toString(),
+      );
+    }
+  }
+
+  //getUser Data
+  void getUserData({
+    required BuildContext context,
+  }) async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString('token');
+      if (token == null) {
+        prefs.setString('token', '');
+
+        showSnackBar(
+            context, 'Your are not loged in !! , create account or login');
+      }
     } catch (e) {
       showSnackBar(
         context,

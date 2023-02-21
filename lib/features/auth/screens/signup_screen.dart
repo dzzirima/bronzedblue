@@ -41,6 +41,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        title: const Text("hello"),
+      ),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(8.0),
