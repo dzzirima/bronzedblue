@@ -2,16 +2,16 @@ import 'package:bronzedblue/common/widgets/custom_button.dart';
 import 'package:bronzedblue/common/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  static const String routeName = '/Login-screen';
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  static const String routeName = '/SignUp-screen';
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final _LoginFormKey = GlobalKey<FormState>();
+class _SignUpScreenState extends State<SignUpScreen> {
+  final _SignUpFormKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
@@ -45,9 +45,13 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 child: Form(
-                  key: _LoginFormKey,
+                  key: _SignUpFormKey,
                   child: Column(
                     children: [
+                      CustomTextField(
+                        controller: _usernameController,
+                        hinttext: "Enter Username",
+                      ),
                       const SizedBox(
                         height: 10,
                       ),
@@ -65,10 +69,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(
                         height: 10,
                       ),
+                      CustomTextField(
+                        controller: _mobileNumberController,
+                        hinttext: "Enter Mobile Number",
+                      ),
                       const SizedBox(
                         height: 10,
                       ),
-                      CustomButton(text: 'Login', onTap: () {})
+                      CustomButton(text: 'Sign Up', onTap: () {})
                     ],
                   ),
                 ),

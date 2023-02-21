@@ -1,3 +1,4 @@
+import 'package:bronzedblue/features/auth/screens/SignUp_screen.dart';
 import 'package:bronzedblue/features/auth/screens/login_screen.dart';
 import 'package:bronzedblue/router.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         onGenerateRoute: (routeSettings) => generateRoute(routeSettings),
-        home: const LoginScreen());
+        home: const SignUpScreen());
   }
 }
